@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import api from './services/api';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Nav from './components/Nav';
+import Agendamento from './pages/Agendamento';
+import Estacao from './pages/Estacao';
+import Home from './pages/Home';
+
 import './styles/css/App.css';
 
 function App() {
-  const [estacoes, setEstacoes] = useState([]);
-  const inicio = 'O Inicio'
-
-  useEffect(() => {
-    api.get('api/v1/estacao')
-      .then((response) => { console.log(response.data) })
-      .catch((error) => { console.log(error) });
-  }, [])
-
-  /*useEffect(() => {
-    async function yu() {      
-      const response = await api.get(`api/v1/estacao`)
-
-      console.log(response.data)
-    }
-    yu()
-  }, [])
-  */
-
-
   return (
-    <div>
-      <h1 className="color" >{inicio}</h1>
-    </div>
+    <BrowserRouter>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/estacao" exact component={Estacao} />
+        <Route path="/agendamento" exact component={Agendamento} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
