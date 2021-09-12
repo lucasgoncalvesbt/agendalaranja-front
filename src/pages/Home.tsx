@@ -25,7 +25,6 @@ export default function Home() {
   useEffect(() => {
     async function handlerLoadData() {
       const token = localStorage.getItem('token');
-
       const response = await api.get(`/escritorio`, { headers: { Authorization: 'Bearer ' + token } })
       setEscritorios(response.data)
     }

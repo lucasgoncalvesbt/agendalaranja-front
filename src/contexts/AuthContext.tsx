@@ -33,21 +33,19 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   const [userIsAuthenticated, setUserIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    async function onLoad() {
+    function onLoad() {
       const token = localStorage.getItem('token');
       if (token) {
-        api.defaults.headers.Authorization = `Bearer ${token}`;
         const decoded = jwt_decode(token) as Decoded;
         setUser({
           id: decoded.sub,
           email: decoded.email,
           nome: decoded.nome
         })
+        setUserIsAuthenticated(true);
       }
-
     };
     onLoad();
-    console.log(user)
   }, [])
 
   const login = async (email: string, senha: string, callback: Function) => {
@@ -56,7 +54,6 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       senha: senha
     })
     localStorage.setItem('token', token)
-    api.defaults.headers.Authorization = `Bearer ${token}`;
     const decoded = jwt_decode(token) as Decoded;
     setUser({
       id: decoded.sub,
