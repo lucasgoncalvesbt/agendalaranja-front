@@ -1,14 +1,25 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import jwt_decode from "jwt-decode";
+import api from '../services/api';
+import { useHistory } from 'react-router-dom';
 
 type User = {
   id: number;
-  name: string;
+  nome: string;
   email: string;
+}
+
+type Decoded = {
+  sub: number;
+  email: string;
+  nome: string;
 }
 
 type AuthContextType = {
   user: User | undefined;
-  signIn: () => Promise<void>;
+  userIsAuthenticated: boolean;
+  login(email: string, senha: string, callback: Function): Promise<void>;
+  logout(): void;
 }
 
 type AuthContextProviderProps = {
@@ -19,17 +30,52 @@ export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const [user, setUser] = useState<User>();
+  const [userIsAuthenticated, setUserIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    async function onLoad() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+        const decoded = jwt_decode(token) as Decoded;
+        setUser({
+          id: decoded.sub,
+          email: decoded.email,
+          nome: decoded.nome
+        })
+      }
 
+    };
+    onLoad();
+    console.log(user)
   }, [])
 
-  async function signIn() {
+  const login = async (email: string, senha: string, callback: Function) => {
+    const { data: { token } } = await api.post('/auth/sign', {
+      email: email,
+      senha: senha
+    })
+    localStorage.setItem('token', token)
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+    const decoded = jwt_decode(token) as Decoded;
+    setUser({
+      id: decoded.sub,
+      email: decoded.email,
+      nome: decoded.nome
+    })
 
+    console.log(user);
+    callback();
+  }
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(undefined);
+    console.log("logout")
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn }}>
+    <AuthContext.Provider value={{ user, userIsAuthenticated, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );
