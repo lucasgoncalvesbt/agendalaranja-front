@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
-import fclogo from '../assets/images/fclogo.png';
+import fclogo from '../assets/images/fclogo2.png';
 
 import '../styles/css/nav.css';
 
