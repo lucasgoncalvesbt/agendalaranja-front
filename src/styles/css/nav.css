@@ -10,12 +10,13 @@ nav {
 }
 nav img {
   width: 10rem;
+  fill: #004400;
 }
 nav .button {
   padding: 0.5rem 1rem;
   background-color: #fe4400;
   border-radius: 0.3rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #fff;
   border: none;
   cursor: pointer;
