@@ -4,7 +4,6 @@ import UIModal from '../components/Modal';
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/css/home.css';
-import Login from './Login';
 
 export default function Home() {
   const { user } = useAuth();

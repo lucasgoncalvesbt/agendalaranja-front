@@ -10,7 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  async function handlerSubmit(event: FormEvent) {
+  const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault();
     await login(email, senha, () => history.push('/estacao'))
   }
