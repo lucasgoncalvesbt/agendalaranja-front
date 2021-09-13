@@ -27,7 +27,7 @@ export default function Home() {
           <button className="button" onClick={handlerClickOpen}>modal</button>
         </main>
         <UIModal isOpen={isOpen} onClickClose={handlerClose}>
-          <Login />
+          <h1>Modal</h1>
         </UIModal>
       </div>
     </div>
