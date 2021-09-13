@@ -1,0 +1,28 @@
+nav {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  z-index: 3;
+}
+nav img {
+  width: 8rem;
+}
+nav .button {
+  padding: 0.5rem 1rem;
+  background-color: #fe4400;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+nav .button:hover {
+  filter: brightness(0.8);
+}
+
+/*# sourceMappingURL=nav.css.map */

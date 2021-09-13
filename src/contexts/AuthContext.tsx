@@ -29,6 +29,7 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
+  const history = useHistory();
   const [user, setUser] = useState<User>();
   const [userIsAuthenticated, setUserIsAuthenticated] = useState(false);
 
@@ -60,14 +61,13 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       email: decoded.email,
       nome: decoded.nome
     })
-
-    console.log(user);
     callback();
   }
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(undefined);
+    history.push('/login')
     console.log("logout")
   }
 

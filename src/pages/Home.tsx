@@ -1,52 +1,35 @@
-import React from 'react';
-import { useEffect, useState } from "react";
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import UIModal from '../components/Modal';
 import { useAuth } from '../hooks/useAuth';
-import api from "../services/api";
 
-type Escritorio = {
-  id: number,
-  local: string,
-  capacidade: number
-}
+import '../styles/css/home.css';
+import Login from './Login';
 
 export default function Home() {
   const { user } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const [escritorios, setEscritorios] = useState<Escritorio[]>([]);
+  const handlerClickOpen = () => {
+    setIsOpen(true);
+  }
 
-  /*
-  useEffect(() => {
-    api.get('api/v1/estacao')
-      .then((response) => { setEstacoes(response.data) })
-      .catch((error) => { console.log(error) });
-  }, [])
-  */
-
-  useEffect(() => {
-    async function handlerLoadData() {
-      const token = localStorage.getItem('token');
-      const response = await api.get(`/escritorio`, { headers: { Authorization: 'Bearer ' + token } })
-      setEscritorios(response.data)
-    }
-    handlerLoadData()
-  }, [])
-
-
-  function handlerUsu() {
-    console.log(user)
+  const handlerClose = () => {
+    setIsOpen(false);
   }
 
   return (
-    <div>
-      <button onClick={handlerUsu}>usuario ???</button>
-      <h1>Home</h1>
-      {escritorios.map(({ id, local, capacidade }) => (
-        <ul key={id}>
-          <li>id {id}</li>
-          <li>local {local}</li>
-          <li>capacidade {capacidade}</li>
-        </ul>
-      ))}
+    <div className="page-home-overlay">
+      <div className="page-home">
+        <main>
+          <p>O jeito mais fácil, rápido e prático de agendar o seu espaço de trabalho.</p>
+          <Link to="/" className="button"> Agendar </Link>
+          <button className="button" onClick={handlerClickOpen}>modal</button>
+        </main>
+        <UIModal isOpen={isOpen} onClickClose={handlerClose}>
+          <Login />
+        </UIModal>
+      </div>
     </div>
   );
 }

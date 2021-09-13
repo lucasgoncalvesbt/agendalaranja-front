@@ -1,20 +1,31 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
-export default function Nav() {
-  const { logout } = useAuth();
+import fclogo from '../assets/images/fclogo.png';
 
-  function handlerClick() {
+import '../styles/css/nav.css';
+
+export default function Nav() {
+  const { user, logout } = useAuth();
+  const { pathname } = useLocation();
+
+  function handlerLogout() {
     logout();
   }
 
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/estacao">Estação</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/agendamento">Agendamento</Link>
-      <button onClick={handlerClick}>Loggout</button>
-    </nav>
+    !(pathname == "/login" || pathname == "/logout") ?
+      <nav className="">
+        <Link to="/">
+          <img src={fclogo} alt="Logo da FCamara" />
+        </Link>
+        {!user ? (
+          <Link to="/login" className="button">Entrar</Link>
+        ) : (
+          <button className="button" onClick={handlerLogout}>Logout</button>
+        )}
+      </nav>
+      : null
   )
 }
