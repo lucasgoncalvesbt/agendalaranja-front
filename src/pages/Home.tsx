@@ -48,12 +48,17 @@ export default function Home() {
 
   return (
     <div className="page-home-overlay">
-      <div className="page-home">
-        <main>
-          <p>O jeito mais fácil, rápido e prático de agendar o seu espaço de trabalho.</p>
+      <div className="container page-home">
+        <div className={"home-intro-tittle"}>
+          <p>Você de volta ao seu espaço de trabalho!</p>
           <Link to="/" className="button"> Agendar </Link>
           <button className="button" onClick={handlerClickOpen}>modal</button>
-        </main>
+        </div>
+        <div className={"home-intro-image"}>
+          a
+        </div>
+
+
         <UIModal isOpen={isOpen} onClickClose={handlerClose}>
           <form onSubmit={handlerSubmit}>
             <div>

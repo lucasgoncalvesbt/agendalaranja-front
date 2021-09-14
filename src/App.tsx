@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import Footer from './components/footer';
 
 import Nav from './components/Nav';
 import { AuthContextProvider } from './contexts/AuthContext';
@@ -12,6 +13,7 @@ function App() {
       <AuthContextProvider>
         <Nav />
         <Routes />
+        <Footer />
       </AuthContextProvider>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ const Cadastro = () => {
   const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const payload = { nome: nome, email: email, senha: senha };
+    const payload = { nome: nome, email: email + emailFinal, senha: senha };
     console.log(payload);
 
     const token = localStorage.getItem('token');

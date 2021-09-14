@@ -1,39 +1,29 @@
 .page-home-overlay {
   width: 100%;
   min-height: 100vh;
-  background: url("../../assets/images/bg-cta.jpg") center/cover no-repeat;
-}
-.page-home-overlay::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: #fff;
 }
 .page-home-overlay .page-home {
   width: 100%;
-  min-height: 100vh;
+  padding: 200px 0 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-.page-home-overlay .page-home main {
+.page-home-overlay .page-home .home-intro-tittle {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-grow: 1;
+  align-items: flex-start;
   gap: 2rem;
-  z-index: 3;
+  padding: 20px;
 }
-.page-home-overlay .page-home main p {
-  width: 80%;
-  color: #fff;
-  font-size: 2.5em;
-  font-weight: 600;
-  text-align: center;
+.page-home-overlay .page-home .home-intro-tittle p {
+  color: #fe4400;
+  font-size: 48px;
+  font-weight: bold;
 }
-.page-home-overlay .page-home main .button {
+.page-home-overlay .page-home .home-intro-tittle .button {
   padding: 0.7rem 2rem;
   background-color: #fe4400;
   border-radius: 0.5rem;
@@ -43,8 +33,12 @@
   color: #fff;
   transition: filter 0.2s;
 }
-.page-home-overlay .page-home main .button:hover {
+.page-home-overlay .page-home .home-intro-tittle .button:hover {
   filter: brightness(0.8);
+}
+.page-home-overlay .page-home .home-intro-image {
+  width: 50%;
+  padding: 20px;
 }
 
 /*# sourceMappingURL=home.css.map */

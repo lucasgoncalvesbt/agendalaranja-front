@@ -1,23 +1,25 @@
 header {
   width: 100%;
   position: fixed;
+  background-color: #fff;
+  padding: 1.5rem 0 1.5rem;
+}
+header .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.5rem 2rem;
-  z-index: 3;
 }
-header img {
-  width: 159px;
+header .navbar img {
+  width: 164px;
   fill: #004400;
 }
-header nav ul {
+header .navbar nav ul {
   display: flex;
   list-style: none;
   gap: 20px;
 }
-header .button {
+header .navbar .button {
   padding: 0.5rem 1rem;
   background-color: #fe4400;
   border-radius: 0.3rem;
@@ -27,7 +29,7 @@ header .button {
   cursor: pointer;
   transition: filter 0.2s;
 }
-header .button:hover {
+header .navbar .button:hover {
   filter: brightness(0.8);
 }
 

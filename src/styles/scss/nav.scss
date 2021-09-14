@@ -1,43 +1,46 @@
 header {
   width: 100%;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
 
-  padding: 1.5rem 2rem;
+  background-color: #fff;
 
-  z-index: 3;
+  padding: 1.5rem 0 1.5rem;
 
-  img {
-    width: 159px;
-    fill: rgb(0, 68, 0);
-  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 
-  nav {
-    ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
+    img {
+      width: 164px;
+      fill: rgb(0, 68, 0);
     }
-  }
 
-  .button {
-    padding: 0.5rem 1rem;
-    background-color: rgb(254, 68, 0);
-    border-radius: 0.3rem;
+    nav {
+      ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+    }
 
-    font-size: 1rem;
-    color: #fff;
-    border: none;
+    .button {
+      padding: 0.5rem 1rem;
+      background-color: rgb(254, 68, 0);
+      border-radius: 0.3rem;
 
-    cursor: pointer;
+      font-size: 1rem;
+      color: #fff;
+      border: none;
 
-    transition: filter 0.2s;
+      cursor: pointer;
 
-    &:hover {
-      filter: brightness(0.8);
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
   }
 }
