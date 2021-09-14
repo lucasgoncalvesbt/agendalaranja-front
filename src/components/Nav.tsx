@@ -14,18 +14,29 @@ export default function Nav() {
     logout();
   }
 
+  const handlerAgendamentos = () => {
+    return (<li><Link to="/estacoes" >Estações</Link></li>)
+  }
+
   return (
-    !(pathname == "/login" || pathname == "/signout") ?
-      <nav className="">
+    !(pathname === "/login" || pathname === "/signup") ?
+      <header className="">
         <Link to="/">
           <img src={fclogo} alt="Logo da FCamara" />
         </Link>
+        <nav>
+          <ul>
+            <li><Link to="/escritorios" >Home</Link></li>
+            <li><Link to="/estacoes" >Estações</Link></li>
+            <li><Link to="/agendamentos" >Agendamentos</Link></li>
+          </ul>
+        </nav>
         {!user ? (
           <Link to="/login" className="button">Entrar</Link>
         ) : (
           <button className="button" onClick={handlerLogout}>Logout</button>
         )}
-      </nav>
+      </header>
       : null
   )
 }

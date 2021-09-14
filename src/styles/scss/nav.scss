@@ -1,4 +1,4 @@
-nav {
+header {
   width: 100%;
   position: fixed;
   display: flex;
@@ -11,8 +11,16 @@ nav {
   z-index: 3;
 
   img {
-    width: 10rem;
+    width: 159px;
     fill: rgb(0, 68, 0);
+  }
+
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
   }
 
   .button {

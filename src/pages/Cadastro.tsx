@@ -1,26 +1,48 @@
 import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import api from '../services/api';
 
-import '../styles/css/login.css';
+import '../styles/css/cadastro.css';
 
-export default function Login() {
+const Cadastro = () => {
   const history = useHistory();
-  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [nome, setNome] = useState("");
   const emailFinal = "@fcamara.com"
 
   const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await login(email + emailFinal, senha, () => history.push('/estacao'))
+
+    const payload = { nome: nome, email: email, senha: senha };
+    console.log(payload);
+
+    const token = localStorage.getItem('token');
+    try {
+      const response = await api.post('/auth/signout', payload, { headers: { Authorization: 'Bearer ' + token } })
+      console.log(response.data)
+    } catch (error: any) {
+      console.log(error.response.data)
+    }
+
+    history.push("/login");
   }
 
   return (
-    <div className="page-login-overlay">
-      <div className="page-login">
-        <h1>Login</h1>
+    <div className="page-signup-overlay">
+      <div className="page-signup">
+        <h1>Sign Up</h1>
         <form onSubmit={handlerSubmit}>
+          <div className="input-group">
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Digite seu nome"
+              onChange={event => setNome(event.target.value)}
+              value={nome}
+            />
+          </div>
           <div className="input-group">
             <label htmlFor="name">Email</label>
             <div className="input-group-email">
@@ -36,19 +58,20 @@ export default function Login() {
             </div>
           </div>
           <div className="input-group">
-            <label htmlFor="senha">Senha</label>
+            <label>Senha</label>
             <input
               type="password"
-              id="senha"
               placeholder="Digite a Senha"
               onChange={event => setSenha(event.target.value)}
               value={senha}
             />
           </div>
-          <button className="button" type="submit">Logar</button>
+          <button className="button" type="submit">Cadastrar-se</button>
         </form>
-        <p>Não possui conta? <Link to="/signup">Cadastre-se aqui</Link>.</p>
+        <p>Já possui uma conta? <Link to="/login">Entre aqui</Link>.</p>
       </div>
     </div>
-  );
+  )
 }
+
+export default Cadastro;

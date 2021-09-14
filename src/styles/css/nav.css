@@ -1,4 +1,4 @@
-nav {
+header {
   width: 100%;
   position: fixed;
   display: flex;
@@ -8,11 +8,16 @@ nav {
   padding: 1.5rem 2rem;
   z-index: 3;
 }
-nav img {
-  width: 10rem;
+header img {
+  width: 159px;
   fill: #004400;
 }
-nav .button {
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+header .button {
   padding: 0.5rem 1rem;
   background-color: #fe4400;
   border-radius: 0.3rem;
@@ -22,7 +27,7 @@ nav .button {
   cursor: pointer;
   transition: filter 0.2s;
 }
-nav .button:hover {
+header .button:hover {
   filter: brightness(0.8);
 }
 

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Agendamento() {
+
+  useEffect(() => {
+
+  }, [])
+
   return (
-    <div>
-      <h1>Agendamento</h1>
+    <div className="page-agendamentos-overlay">
+      <div className="container">
+        <h1>Meus Agendamentos</h1>
+      </div>
     </div>
   );
 }

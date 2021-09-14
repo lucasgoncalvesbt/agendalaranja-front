@@ -1,12 +1,12 @@
-.page-login-overlay {
+.page-signup-overlay {
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(254, 68, 0);
+  background-color: rgb(54, 53, 126);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .page-login {
+  .page-signup {
     width: 90%;
     max-width: 600px;
     background-color: rgb(255, 255, 255);
@@ -23,7 +23,7 @@
       text-transform: uppercase;
       font-weight: 800;
       font-size: 3rem;
-      color: rgb(254, 68, 0);
+      color: rgb(54, 53, 126);
     }
 
     form {
@@ -41,18 +41,18 @@
         gap: 5px;
 
         label {
-          color: rgb(254, 68, 0);
+          color: rgb(54, 53, 126);
         }
 
         input {
           width: 100%;
 
-          border: 1px solid rgb(254, 68, 0);
+          border: 1px solid rgb(54, 53, 126);
           padding: 10px 15px;
           border-radius: 5px;
 
           &:focus {
-            border: 1px solid rgb(254, 68, 0);
+            border: 1px solid rgb(54, 53, 126);
           }
         }
 
@@ -62,19 +62,20 @@
           input {
             width: 70%;
 
-            border: 1px solid rgb(254, 68, 0);
-            padding: 5px 10px;
+            border: 1px solid rgb(54, 53, 126);
             border-radius: 5px 0px 0px 5px;
           }
 
           span {
             width: fit-content;
-            border: 1px solid rgb(254, 68, 0);
-            background-color: rgb(254, 68, 0);
+            border: 1px solid rgb(54, 53, 126);
+            background-color: rgb(54, 53, 126);
             color: white;
             padding: 5px 10px;
             border-radius: 0px 5px 5px 0px;
 
+            display: flex;
+            align-items: center;
             font-size: 1rem;
           }
         }
@@ -82,8 +83,8 @@
 
       .button {
         width: 100%;
-        padding: 0.5rem 1rem;
-        background-color: rgb(254, 68, 0);
+        padding: 10px 15px;
+        background-color: rgb(54, 53, 126);
         border-radius: 0.3rem;
         margin-top: 20px;
 
@@ -105,17 +106,6 @@
       width: 90%;
       margin: 0 auto;
       text-align: center;
-    }
-
-    .button-voltar {
-      align-self: flex-start;
-      background: rgb(254, 68, 0);
-      padding: 5px 10px;
-      margin-left: 35px;
-      border-radius: 5px;
-      color: #fff;
-      border: unset;
-      cursor: pointer;
     }
   }
 }
