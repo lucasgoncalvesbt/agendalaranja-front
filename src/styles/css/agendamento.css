@@ -1,10 +1,87 @@
 .page-agendamentos-overlay {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .page-agendamentos-overlay .page-agendamentos {
-  width: 80%;
-  padding-top: 200px;
+  padding: 200px 0 200px;
+}
+.page-agendamentos-overlay .page-agendamentos .title-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-agendamentos-overlay .page-agendamentos .title-button h1 {
+  color: #0b132a;
+  font-size: 32px;
+  font-weight: bold;
+}
+.page-agendamentos-overlay .page-agendamentos .title-button .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0.5rem 1rem;
+  background-color: #fe4400;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.page-agendamentos-overlay .page-agendamentos .title-button .button:hover {
+  filter: brightness(0.8);
+}
+.page-agendamentos-overlay .page-agendamentos .title-button .button svg {
+  font-size: 24px;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 48px;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card {
+  width: 256px;
+  padding: 20px 5px;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body {
+  width: fit-content;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body h5 {
+  margin: 20px 0 20px;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body .card-list {
+  list-style: none;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body .card-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body .card-list li svg {
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  background-color: #ffd0a4;
+  color: #ff601c;
+  border-radius: 50%;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body .plus-icon {
+  width: 100%;
+  font-size: 64px;
+  color: #e6e6e6;
+  align-items: center;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card .card-body-plus {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=agendamento.css.map */

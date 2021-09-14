@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.css';
+
+import '../styles/css/modal.css';
 
 const portalRoot = document.getElementById('portal-root') as HTMLElement;
 

@@ -18,7 +18,11 @@
 
 .ui-modal__close-button {
   float: right;
-  background: unset;
   border: unset;
   cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: #ff601c;
+  border-radius: 50%;
+  color: white;
 }

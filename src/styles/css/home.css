@@ -16,7 +16,7 @@
   flex-grow: 1;
   align-items: flex-start;
   gap: 2rem;
-  padding: 20px;
+  padding: 0 20px;
 }
 .page-home-overlay .page-home .home-intro-tittle h1 {
   color: #0b132a;

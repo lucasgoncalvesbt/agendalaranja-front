@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
+import { IoExitOutline } from "react-icons/io5"
 import fclogo from '../assets/images/logolaranja.svg';
 
 import '../styles/css/nav.css';
@@ -31,7 +32,10 @@ export default function Nav() {
           {!user ? (
             <Link to="/login" className="button">Entrar</Link>
           ) : (
-            <button className="button" onClick={handlerLogout}>Logout</button>
+            <div className="login">
+              <span>Olá, {user.nome}</span>
+              <button className="button" onClick={handlerLogout}>< IoExitOutline /></button>
+            </div>
           )}
         </div>
       </header>

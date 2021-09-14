@@ -6,6 +6,8 @@ header {
 
   padding: 1.5rem 0 1.5rem;
 
+  border-bottom: 1px solid #e6e6e6;
+
   .navbar {
     display: flex;
     align-items: center;
@@ -13,8 +15,7 @@ header {
     gap: 1rem;
 
     img {
-      width: 164px;
-      fill: rgb(0, 68, 0);
+      width: 132px;
     }
 
     nav {
@@ -25,21 +26,28 @@ header {
       }
     }
 
-    .button {
-      padding: 0.5rem 1rem;
-      background-color: rgb(254, 68, 0);
-      border-radius: 0.3rem;
+    .login {
+      display: flex;
+      align-items: center;
 
-      font-size: 1rem;
-      color: #fff;
-      border: none;
+      .button {
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
 
-      cursor: pointer;
+        font-size: 32px;
+        color: rgb(254, 68, 0);
+        font-weight: 600;
+        border: none;
 
-      transition: filter 0.2s;
+        cursor: pointer;
 
-      &:hover {
-        filter: brightness(0.8);
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
       }
     }
   }

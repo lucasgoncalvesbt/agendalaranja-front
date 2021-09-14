@@ -3,6 +3,7 @@ header {
   position: fixed;
   background-color: #fff;
   padding: 1.5rem 0 1.5rem;
+  border-bottom: 1px solid #e6e6e6;
 }
 header .navbar {
   display: flex;
@@ -11,25 +12,30 @@ header .navbar {
   gap: 1rem;
 }
 header .navbar img {
-  width: 164px;
-  fill: #004400;
+  width: 132px;
 }
 header .navbar nav ul {
   display: flex;
   list-style: none;
   gap: 3rem;
 }
-header .navbar .button {
+header .navbar .login {
+  display: flex;
+  align-items: center;
+}
+header .navbar .login .button {
   padding: 0.5rem 1rem;
-  background-color: #fe4400;
-  border-radius: 0.3rem;
-  font-size: 1rem;
-  color: #fff;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  color: #fe4400;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   transition: filter 0.2s;
 }
-header .navbar .button:hover {
+header .navbar .login .button:hover {
   filter: brightness(0.8);
 }
 

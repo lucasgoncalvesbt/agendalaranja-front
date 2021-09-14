@@ -35,7 +35,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
 
   useEffect(() => {
     function onLoad() {
-      const token = localStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
       if (token) {
         const decoded = jwt_decode(token) as Decoded;
         setUser({
@@ -44,6 +44,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           nome: decoded.nome
         })
         setUserIsAuthenticated(true);
+      } else {
+        setUser(undefined);
+        history.push('/login')
       }
     };
     onLoad();
@@ -54,7 +57,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       email: email,
       senha: senha
     })
-    localStorage.setItem('token', token)
+    sessionStorage.setItem('token', token)
     const decoded = jwt_decode(token) as Decoded;
     setUser({
       id: decoded.sub,
@@ -65,7 +68,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   }
 
   const logout = () => {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     setUser(undefined);
     history.push('/login')
     console.log("logout")
