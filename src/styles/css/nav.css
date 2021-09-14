@@ -17,7 +17,7 @@ header .navbar img {
 header .navbar nav ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 3rem;
 }
 header .navbar .button {
   padding: 0.5rem 1rem;

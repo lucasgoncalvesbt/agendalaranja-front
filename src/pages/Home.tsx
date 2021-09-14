@@ -50,7 +50,11 @@ export default function Home() {
     <div className="page-home-overlay">
       <div className="container page-home">
         <div className={"home-intro-tittle"}>
-          <p>Você de volta ao seu espaço de trabalho!</p>
+          <h1>Agenda Laranja: você no escritório, quando quiser!</h1>
+          <p>
+            O mundo mudou e o seu escritório tabém. <br />
+            Você pode decidir <strong>quando</strong> ir até la!
+          </p>
           <Link to="/" className="button"> Agendar </Link>
           <button className="button" onClick={handlerClickOpen}>modal</button>
         </div>

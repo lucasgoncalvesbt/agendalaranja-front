@@ -18,16 +18,26 @@
   gap: 2rem;
   padding: 20px;
 }
-.page-home-overlay .page-home .home-intro-tittle p {
-  color: #fe4400;
+.page-home-overlay .page-home .home-intro-tittle h1 {
+  color: #0b132a;
   font-size: 48px;
   font-weight: bold;
 }
+.page-home-overlay .page-home .home-intro-tittle p {
+  color: #000000;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+}
 .page-home-overlay .page-home .home-intro-tittle .button {
-  padding: 0.7rem 2rem;
+  width: 250px;
+  height: 60px;
   background-color: #fe4400;
   border-radius: 0.5rem;
-  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   color: #fff;
@@ -39,6 +49,23 @@
 .page-home-overlay .page-home .home-intro-image {
   width: 50%;
   padding: 20px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .page-home-overlay .page-home .home-intro-tittle h1 {
+    font-size: 34px;
+  }
+  .page-home-overlay .page-home .home-intro-tittle .button {
+    width: 100%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
+  .home-intro-image {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */
