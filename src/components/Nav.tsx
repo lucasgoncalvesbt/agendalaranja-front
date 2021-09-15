@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 import { IoExitOutline } from "react-icons/io5"
-import fclogo from '../assets/images/logolaranja.svg';
+import agendaLaranjaFC from '../assets/images/logoagendalaranjapwb.svg';
 
 import '../styles/css/nav.css';
 
@@ -20,7 +20,7 @@ export default function Nav() {
       <header className="">
         <div className="container navbar">
           <Link to="/">
-            <img src={fclogo} alt="Logo da FCamara" />
+            <img src={agendaLaranjaFC} alt="Logo da FCamara" />
           </Link>
           <nav>
             <ul>
