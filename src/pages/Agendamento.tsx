@@ -13,6 +13,18 @@ import { Link, useHistory } from 'react-router-dom';
 import SucessoModal from '../components/SucessoModal';
 import ErrorModal from '../components/ErrorModal';
 
+type Escritorio = {
+  id: number;
+  local: string;
+  capacidade: number;
+}
+
+type Estacao = {
+  id: number;
+  qtdLugares: number;
+  escritorioId: number;
+}
+
 type Agendamento = {
   id: string;
   nomeConsultor: string,
@@ -23,7 +35,9 @@ type Agendamento = {
 }
 
 export default function Agendamento() {
-  const { user, logout, isAuthenticated } = useAuth();
+  const { user, isAuthenticated } = useAuth();
+  const [escritorios, setEscritorios] = useState<Escritorio[]>([]);
+  const [estacoes, setEstacoes] = useState<Estacao[]>([]);
   const [agendamentos, setAgendamentos] = useState<Agendamento[]>([]);
   const [estacao, setEstacao] = useState('');
   const [dataAgendada, setDataAgendada] = useState('');
@@ -37,9 +51,11 @@ export default function Agendamento() {
       const token = localStorage.getItem('token');
 
       if (token) {
-        const response = await api.get('/agendamento?emailConsultor=' + user?.email, { headers: { Authorization: 'Bearer ' + token } })
-        setAgendamentos(response.data);
-        console.log(response);
+        const agendamentosResponse = await api.get('/agendamento?emailConsultor=' + user?.email, { headers: { Authorization: 'Bearer ' + token } })
+        setAgendamentos(agendamentosResponse.data);
+        const escritoriosResponse = await api.get('/escritorio', { headers: { Authorization: 'Bearer ' + token } })
+        setEscritorios(escritoriosResponse.data);
+        console.log(escritoriosResponse.data);
       }
     }
     onLoad();
@@ -53,13 +69,24 @@ export default function Agendamento() {
 
     const token = localStorage.getItem('token');
 
-    setIsOpen(false);
-    setSucessoIsOpen(true);
+    //setIsOpen(false);
+    //setSucessoIsOpen(true);
+    console.log()
     try {
-      const response = await api.post('/agendamento', payload, { headers: { Authorization: 'Bearer ' + token } })
-      console.log(response.data)
+      //const response = await api.post('/agendamento', payload, { headers: { Authorization: 'Bearer ' + token } })
+      //console.log(response.data)
     } catch (error: any) {
       console.log(error.response.data)
+    }
+  }
+
+  const handlerEstacoes = async (id: string) => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const estacoesResponse = await api.get('/estacao?escritorioId=' + id, { headers: { Authorization: 'Bearer ' + token } })
+      setEstacoes(estacoesResponse.data);
+      console.log(estacoesResponse.data)
     }
   }
 
@@ -117,13 +144,19 @@ export default function Agendamento() {
       <UIModal isOpen={isOpen} onClickClose={() => setIsOpen(false)}>
         <form onSubmit={handlerSubmit}>
           <div>
-            <input type="text" value={user?.nome} disabled />
+            <select onChange={event => handlerEstacoes(event.target.value)}>
+              <option value="">Todas</option>
+              {escritorios.map((escritorio => {
+                return <option key={escritorio.id} value={escritorio.id}>{escritorio.local}</option>
+              }))}
+            </select>
           </div>
           <div>
-            <input type="text" value={user?.email} disabled />
-          </div>
-          <div>
-            <input type="text" onChange={event => setEstacao(event.target.value)} />
+            <select onChange={event => console.log(event.target.value)}>
+              {estacoes.map((estacao => {
+                return <option key={estacao.id} value={estacao.id}>{estacao.id}</option>
+              }))}
+            </select>
           </div>
           <div>
             <input type="date" onChange={event => setDataAgendada(event.target.value)} />
