@@ -53,12 +53,12 @@
   display: flex;
 }
 .page-login-overlay .page-login form .input-group .input-group-email input {
-  width: 70%;
   border: 1px solid #fe4400;
-  padding: 5px 10px;
   border-radius: 5px 0px 0px 5px;
 }
 .page-login-overlay .page-login form .input-group .input-group-email span {
+  display: flex;
+  align-items: center;
   width: fit-content;
   border: 1px solid #fe4400;
   background-color: #fe4400;
