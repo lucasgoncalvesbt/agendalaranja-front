@@ -10,6 +10,8 @@ import { GiTable } from 'react-icons/gi';
 import '../styles/css/agendamento.css';
 import UIModal from '../components/Modal';
 import { Link, useHistory } from 'react-router-dom';
+import SucessoModal from '../components/SucessoModal';
+import ErrorModal from '../components/ErrorModal';
 
 type Agendamento = {
   id: string;
@@ -21,12 +23,14 @@ type Agendamento = {
 }
 
 export default function Agendamento() {
-  const history = useHistory();
   const { user, logout, isAuthenticated } = useAuth();
   const [agendamentos, setAgendamentos] = useState<Agendamento[]>([]);
   const [estacao, setEstacao] = useState('');
   const [dataAgendada, setDataAgendada] = useState('');
+
   const [isOpen, setIsOpen] = useState(false);
+  const [sucessoIsOpen, setSucessoIsOpen] = useState(false);
+  const [errorIsOpen, setErrorIsOpen] = useState(false);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -48,10 +52,12 @@ export default function Agendamento() {
     const payload = { estacaoId: estacao, dataAgendada: data, nomeConsultor: user?.nome, emailConsultor: user?.email };
 
     const token = localStorage.getItem('token');
+
+    setIsOpen(false);
+    setSucessoIsOpen(true);
     try {
       const response = await api.post('/agendamento', payload, { headers: { Authorization: 'Bearer ' + token } })
       console.log(response.data)
-      window.location.reload();
     } catch (error: any) {
       console.log(error.response.data)
     }
@@ -125,6 +131,15 @@ export default function Agendamento() {
           <button className="button">Agendar</button>
         </form>
       </UIModal>
+      <SucessoModal sucessoIsOpen={sucessoIsOpen} onClickClose={() => {
+        setSucessoIsOpen(false);
+        window.location.reload();
+      }} >
+        <h1>Sucesso</h1>
+      </SucessoModal>
+      <ErrorModal errorIsOpen={errorIsOpen} onClickClose={() => { setErrorIsOpen(false) }} >
+        <h1>Sucesso</h1>
+      </ErrorModal>
     </div>
   );
 }
