@@ -1,21 +1,10 @@
-import React, { FormEvent, useRef, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import UIModal from '../components/Modal';
-import { useAuth } from '../hooks/useAuth';
-import api from '../services/api';
 
 import '../styles/css/home.css';
 
-type User = {
-  id: number;
-  nome: string;
-  email: string;
-}
 
 export default function Home() {
-  const { user } = useAuth();
-
-
   return (
     <div className="page-home-overlay">
       <div className="container page-home">

@@ -8,21 +8,21 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 export default function Routes() {
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
+
+  console.log(user)
+  console.log(isAuthenticated)
 
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/estacoes" component={Estacao} />
-      <Route exact path="/login">
-        {user ? <Redirect to="/" /> : <Login />}
+      <Route path="/login">
+        {isAuthenticated ? <Redirect to="/" /> : <Login />}
       </Route>
-      <Route exact path="/signup">
-        {user ? <Redirect to="/" /> : <Cadastro />}
+      <Route path="/signup">
+        {isAuthenticated ? <Redirect to="/" /> : <Cadastro />}
       </Route>
-      <Route exact path="/agendamentos">
-        {!user ? <Redirect to="/login" /> : <Agendamento />}
-      </Route>
+      <Route path="/agendamentos" component={Agendamento} />
     </Switch>
   )
 }

@@ -87,6 +87,31 @@
             }
           }
 
+          .button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0 20px;
+            gap: 3px;
+
+            padding: 0.5rem 1rem;
+            background-color: rgb(254, 68, 0);
+            border-radius: 0.3rem;
+
+            font-size: 1rem;
+            color: #fff;
+            border: none;
+
+            cursor: pointer;
+
+            transition: filter 0.2s;
+
+            &:hover {
+              filter: brightness(0.8);
+            }
+          }
+
           .plus-icon {
             width: 100%;
             font-size: 64px;
