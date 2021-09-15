@@ -1,7 +1,6 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import api from '../services/api';
-import { useHistory } from 'react-router-dom';
 
 type User = {
   id: number;
@@ -30,7 +29,6 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
-  const history = useHistory();
   const [user, setUser] = useState<User>();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true);
@@ -67,14 +65,14 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       nome: decoded.nome
     })
     setIsAuthenticated(true);
+    setIsAuthenticating(false);
     callback();
   }
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(undefined);
-    history.push('/login')
-    console.log("logout")
+    window.location.reload();
   }
 
   return (

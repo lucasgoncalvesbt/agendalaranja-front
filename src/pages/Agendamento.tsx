@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
@@ -15,19 +15,19 @@ import { GiTable } from 'react-icons/gi';
 
 import '../styles/css/agendamento.css';
 
-type Escritorio = {
+type EscritorioType = {
   id: number;
   local: string;
   capacidade: number;
 }
 
-type Estacao = {
+type EstacaoType = {
   id: number;
   qtdLugares: number;
   escritorioId: number;
 }
 
-type Agendamento = {
+type AgendamentoType = {
   id: string;
   nomeConsultor: string,
   emailConsultor: string,
@@ -36,36 +36,27 @@ type Agendamento = {
   escritorioName: string
 }
 
-export default function Agendamento() {
-  const history = useHistory();
+const Agendamento = () => {
   const { user, isAuthenticated } = useAuth();
-  const [escritorios, setEscritorios] = useState<Escritorio[]>([]);
-  const [estacoes, setEstacoes] = useState<Estacao[]>([]);
-  const [agendamentos, setAgendamentos] = useState<Agendamento[]>([]);
+  const [escritorios, setEscritorios] = useState<EscritorioType[]>([]);
+  const [estacoes, setEstacoes] = useState<EstacaoType[]>([]);
+  const [agendamentos, setAgendamentos] = useState<AgendamentoType[]>([]);
   const [estacao, setEstacao] = useState('');
   const [dataAgendada, setDataAgendada] = useState('');
 
   const [isOpen, setIsOpen] = useState(false);
   const [sucessoIsOpen, setSucessoIsOpen] = useState(false);
   const [errorIsOpen, setErrorIsOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
 
 
   useEffect(() => {
     const onLoad = async () => {
-      const token = localStorage.getItem('token');
-
-      if (token) {
-        console.log('a')
-        const agendamentosResponse = await api.get('/agendamento?emailConsultor=' + user?.email)
-        console.log('a')
-        setAgendamentos(agendamentosResponse.data);
-        console.log(agendamentosResponse.data)
-        const escritoriosResponse = await api.get('/escritorio')
-        console.log('a')
-        setEscritorios(escritoriosResponse.data);
-        console.log(escritoriosResponse.data);
-      }
+      const agendamentosResponse = await api.get('/agendamento?emailConsultor=' + user?.email);
+      setAgendamentos(agendamentosResponse.data);
+      const escritoriosResponse = await api.get('/escritorio');
+      setEscritorios(escritoriosResponse.data);
     }
     onLoad();
   }, [isAuthenticated])
@@ -76,16 +67,16 @@ export default function Agendamento() {
     const data = dataAgendada.split('-').reverse().join('-');
     const payload = { estacaoId: estacao, dataAgendada: data, nomeConsultor: user?.nome, emailConsultor: user?.email };
 
-    const token = localStorage.getItem('token');
-
     //setIsOpen(false);
     //setSucessoIsOpen(true);
-    console.log()
     try {
-      //const response = await api.post('/agendamento', payload, { headers: { Authorization: 'Bearer ' + token } })
-      //console.log(response.data)
+      const response = await api.post('/agendamento', payload);
+      console.log(response.data)
+      //setSucessoIsOpen(true);
     } catch (error: any) {
       console.log(error.response.data)
+      //setErrorMessage(error.message)
+      //setErrorIsOpen(true);
     }
   }
 
@@ -139,7 +130,7 @@ export default function Agendamento() {
       <div className="container page-agendamentos">
         <div className="title-button">
           <h1>Meus Agendamentos</h1>
-          {isAuthenticated ? <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo</button> : null}
+          {isAuthenticated ? <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo Agendamento</button> : null}
         </div>
         {isAuthenticated ?
           (<div className="agendamentos-list">
@@ -179,9 +170,10 @@ export default function Agendamento() {
         <h1>Sucesso</h1>
       </SucessoModal>
 
-      <ErrorModal errorIsOpen={errorIsOpen} onClickClose={() => { setErrorIsOpen(false) }} >
-        <h1>Sucesso</h1>
-      </ErrorModal>
+      <ErrorModal errorIsOpen={errorIsOpen} errorMessage={errorMessage} onClickClose={() => { setErrorIsOpen(false) }} />
+
     </div>
   );
 }
+
+export default Agendamento;

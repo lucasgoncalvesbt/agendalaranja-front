@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
 
 import '../styles/css/cadastro.css';
@@ -18,15 +17,13 @@ const Cadastro = () => {
     const payload = { nome: nome, email: email + emailFinal, senha: senha };
     console.log(payload);
 
-    const token = localStorage.getItem('token');
     try {
-      const response = await api.post('/auth/signout', payload, { headers: { Authorization: 'Bearer ' + token } })
+      const response = await api.post('/auth/signout', payload)
       console.log(response.data)
+      history.push("/login");
     } catch (error: any) {
       console.log(error.response.data)
     }
-
-    history.push("/login");
   }
 
   return (

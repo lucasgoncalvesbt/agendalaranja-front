@@ -12,20 +12,20 @@ const Footer = () => {
     <footer>
       <div className="container footer-nav">
         <div className="footer-sobre">
-          <h5><img src={agendaLaranjaLogo} /></h5>
+          <Link to="/"><img src={agendaLaranjaLogo} /></Link>
           <p>agenda laranja é um meio prático e eficiente para programar o dia do trabalho presencial, respeitando as normas de segurança</p>
           <span>@2021. agenda laranja. squad 29</span>
         </div>
         <nav>
-          <Link to="/">FAQ</Link>
-          <Link to="/">Tutorais</Link>
-          <Link to="/">Sobre nós</Link>
-          <Link to="/">Política de privacidade</Link>
-          <Link to="/">Termos de Serviço</Link>
+          <Link to="/" title="FAQ">FAQ</Link>
+          <Link to="/" title="Tutorais">Tutorais</Link>
+          <Link to="/" title="Sobre nós">Sobre nós</Link>
+          <Link to="/" title="Política de privacidade">Política de privacidade</Link>
+          <Link to="/" title="Termos de Serviço">Termos de Serviço</Link>
         </nav>
-        <Link to="https://www.fcamara.com.br/">
+        <a href="https://www.fcamara.com.br/" target="_blank" title="Pagina do Grupo FCamara">
           <img src={fclogo} alt="Logo da FCamara" />
-        </Link>
+        </a>
       </div>
     </footer>
   )

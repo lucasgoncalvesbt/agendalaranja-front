@@ -5,8 +5,8 @@ import '../styles/css/modal.css';
 
 const portalRoot = document.getElementById('portal-root') as HTMLElement;
 
-const ErrorModal = (props: { children: ReactNode, errorIsOpen: boolean, onClickClose: () => void }) => {
-  const { children, errorIsOpen, onClickClose } = props;
+const ErrorModal = (props: { errorIsOpen: boolean, errorMessage: string, onClickClose: () => void }) => {
+  const { errorIsOpen, errorMessage, onClickClose } = props;
   if (!errorIsOpen) {
     return null;
   }
@@ -15,7 +15,9 @@ const ErrorModal = (props: { children: ReactNode, errorIsOpen: boolean, onClickC
     <div className="ui-modal__overlay">
       <div className="ui-modal">
         <button type="button" className="ui-modal__close-button" onClick={onClickClose}>X</button>
-        {children}
+        <div>
+          <h1>{errorMessage}</h1>
+        </div>
       </div>
     </div>,
     portalRoot,
