@@ -42,6 +42,15 @@
   justify-content: center;
   margin-top: 48px;
 }
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list h3 {
+  color: #0b132a;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list h3 a {
+  color: #ff601c;
+}
+.page-agendamentos-overlay .page-agendamentos .agendamentos-list h3 a:hover {
+  border-bottom: 1px solid #ff601c;
+}
 .page-agendamentos-overlay .page-agendamentos .agendamentos-list .agendamento-card {
   width: 256px;
   padding: 20px 5px;

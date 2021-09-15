@@ -3,7 +3,6 @@ header {
   position: fixed;
   background-color: #fff;
   padding: 1.5rem 0 1.5rem;
-  border-bottom: 1px solid #e6e6e6;
 }
 header .navbar {
   display: flex;
@@ -19,24 +18,34 @@ header .navbar nav ul {
   list-style: none;
   gap: 3rem;
 }
-header .navbar .login {
-  display: flex;
-  align-items: center;
+header .navbar nav ul a {
+  color: #0b132a;
+  font-weight: bold;
 }
-header .navbar .login .button {
+header .navbar nav ul a:hover {
+  border-bottom: 1px solid;
+}
+header .navbar .button {
   padding: 0.5rem 1rem;
   background-color: transparent;
   display: flex;
   align-items: center;
-  font-size: 32px;
+  font-size: 16px;
   color: #fe4400;
   font-weight: 600;
   border: none;
   cursor: pointer;
   transition: filter 0.2s;
 }
-header .navbar .login .button:hover {
+header .navbar .button:hover {
   filter: brightness(0.8);
+}
+header .navbar .login {
+  display: flex;
+  align-items: center;
+}
+header .navbar .login .button {
+  font-size: 32px;
 }
 
 /*# sourceMappingURL=nav.css.map */

@@ -51,6 +51,18 @@
 
       margin-top: 48px;
 
+      h3 {
+        color: rgb(11, 19, 42);
+
+        a {
+          color: #ff601c;
+
+          &:hover {
+            border-bottom: 1px solid #ff601c;
+          }
+        }
+      }
+
       .agendamento-card {
         width: 256px;
         padding: 20px 5px;

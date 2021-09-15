@@ -6,8 +6,6 @@ header {
 
   padding: 1.5rem 0 1.5rem;
 
-  border-bottom: 1px solid #e6e6e6;
-
   .navbar {
     display: flex;
     align-items: center;
@@ -23,6 +21,35 @@ header {
         display: flex;
         list-style: none;
         gap: 3rem;
+
+        a {
+          color: rgb(11, 19, 42);
+          font-weight: bold;
+
+          &:hover {
+            border-bottom: 1px solid;
+          }
+        }
+      }
+    }
+
+    .button {
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+
+      font-size: 16px;
+      color: rgb(254, 68, 0);
+      font-weight: 600;
+      border: none;
+
+      cursor: pointer;
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
       }
     }
 
@@ -31,23 +58,7 @@ header {
       align-items: center;
 
       .button {
-        padding: 0.5rem 1rem;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-
         font-size: 32px;
-        color: rgb(254, 68, 0);
-        font-weight: 600;
-        border: none;
-
-        cursor: pointer;
-
-        transition: filter 0.2s;
-
-        &:hover {
-          filter: brightness(0.8);
-        }
       }
     }
   }

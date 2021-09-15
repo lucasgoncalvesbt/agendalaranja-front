@@ -7,10 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 export default function Routes() {
-  const { user, isAuthenticated } = useAuth();
-
-  console.log(user)
-  console.log(isAuthenticated)
+  const { isAuthenticated } = useAuth();
 
   return (
     <Switch>

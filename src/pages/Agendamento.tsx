@@ -75,7 +75,7 @@ export default function Agendamento() {
       )
     } else if (!isAuthenticated) {
       return (
-        <>Você não está  logado, <Link to='/login'>entre aqui</Link></>
+        <>Você não está  logado, <Link to='/login'>entre aqui.</Link></>
       )
     }
   }
@@ -101,7 +101,7 @@ export default function Agendamento() {
       <div className="container page-agendamentos">
         <div className="title-button">
           <h1>Meus Agendamentos</h1>
-          <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo</button>
+          {isAuthenticated ? <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo</button> : null}
         </div>
         <div className="agendamentos-list">
           {agendamentos.length > 0 ? agendamentosList : <h3 className="">{renderMensagem()}</h3>}
