@@ -18,6 +18,7 @@ type Decoded = {
 type AuthContextType = {
   user: User | undefined;
   isAuthenticated: boolean;
+  isAuthenticating: boolean;
   login(email: string, senha: string, callback: Function): Promise<void>;
   logout(): void;
 }
@@ -31,22 +32,24 @@ export const AuthContext = createContext({} as AuthContextType)
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const history = useHistory();
   const [user, setUser] = useState<User>();
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true);
 
   useEffect(() => {
     function onLoad() {
       const token = localStorage.getItem('token');
       if (token) {
         const decoded = jwt_decode(token) as Decoded;
+        api.defaults.headers['Authorization'] = `Bearer ${token}`;
         setUser({
           id: decoded.sub,
           email: decoded.email,
           nome: decoded.nome
         })
         setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
       }
+
+      setIsAuthenticating(false);
     };
     onLoad();
   }, [])
@@ -75,7 +78,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, isAuthenticating, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );

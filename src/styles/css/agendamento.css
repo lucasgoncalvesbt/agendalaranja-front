@@ -112,4 +112,14 @@
   align-items: center;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .page-agendamentos-overlay .page-agendamentos .title-button {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+
 /*# sourceMappingURL=agendamento.css.map */
