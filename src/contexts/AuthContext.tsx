@@ -17,7 +17,7 @@ type Decoded = {
 
 type AuthContextType = {
   user: User | undefined;
-  userIsAuthenticated: boolean;
+  isAuthenticated: boolean;
   login(email: string, senha: string, callback: Function): Promise<void>;
   logout(): void;
 }
@@ -31,11 +31,11 @@ export const AuthContext = createContext({} as AuthContextType)
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const history = useHistory();
   const [user, setUser] = useState<User>();
-  const [userIsAuthenticated, setUserIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
   useEffect(() => {
     function onLoad() {
-      const token = sessionStorage.getItem('token');
+      const token = localStorage.getItem('token');
       if (token) {
         const decoded = jwt_decode(token) as Decoded;
         setUser({
@@ -43,10 +43,9 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           email: decoded.email,
           nome: decoded.nome
         })
-        setUserIsAuthenticated(true);
+        setIsAuthenticated(true);
       } else {
-        setUser(undefined);
-        history.push('/login')
+        setIsAuthenticated(false);
       }
     };
     onLoad();
@@ -57,25 +56,26 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       email: email,
       senha: senha
     })
-    sessionStorage.setItem('token', token)
+    localStorage.setItem('token', token)
     const decoded = jwt_decode(token) as Decoded;
     setUser({
       id: decoded.sub,
       email: decoded.email,
       nome: decoded.nome
     })
+    setIsAuthenticated(true);
     callback();
   }
 
   const logout = () => {
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     setUser(undefined);
     history.push('/login')
     console.log("logout")
   }
 
   return (
-    <AuthContext.Provider value={{ user, userIsAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {props.children}
     </AuthContext.Provider>
   );
