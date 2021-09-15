@@ -3,7 +3,7 @@
   min-height: 100vh;
 }
 .page-agendamentos-overlay .page-agendamentos {
-  padding: 200px 0 200px;
+  padding: 200px 0 100px;
 }
 .page-agendamentos-overlay .page-agendamentos .title-button {
   display: flex;
@@ -40,7 +40,7 @@
   flex-wrap: wrap;
   gap: 32px;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: 100px;
 }
 .page-agendamentos-overlay .page-agendamentos .agendamentos-list h3 {
   color: #0b132a;
@@ -117,7 +117,7 @@
 @media only screen and (max-width: 768px) {
   .page-agendamentos-overlay .page-agendamentos .title-button {
     flex-direction: column;
-    gap: 40px;
+    gap: 100px;
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */

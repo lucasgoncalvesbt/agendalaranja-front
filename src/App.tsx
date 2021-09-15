@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Nav from './components/Nav';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { useAuth } from './hooks/useAuth';

@@ -12,7 +12,9 @@ const Footer = () => {
     <footer>
       <div className="container footer-nav">
         <div className="footer-sobre">
-          <Link to="/"><img src={agendaLaranjaLogo} /></Link>
+          <Link to="/" title="Volta para home">
+            <img src={agendaLaranjaLogo} alt="Logo da Agenda Laranja" />
+          </Link>
           <p>agenda laranja é um meio prático e eficiente para programar o dia do trabalho presencial, respeitando as normas de segurança</p>
           <span>@2021. agenda laranja. squad 29</span>
         </div>
