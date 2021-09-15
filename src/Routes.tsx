@@ -3,7 +3,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import Agendamento from "./pages/Agendamento";
 import Cadastro from "./pages/Cadastro";
-import Estacao from "./pages/Estacao";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 
@@ -23,6 +22,7 @@ export default function Routes() {
         {isAuthenticated ? <Redirect to="/" /> : <Cadastro />}
       </Route>
       <Route path="/agendamentos" component={Agendamento} />
+      <Route path="" component={Home} />
     </Switch>
   )
 }
