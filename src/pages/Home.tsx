@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 import '../styles/css/home.css';
 
 
 export default function Home() {
+  const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+
+  }, [isAuthenticated])
+
   return (
     <div className="page-home-overlay">
       <div className="container page-home">
