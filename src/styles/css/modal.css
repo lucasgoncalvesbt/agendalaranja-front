@@ -1,23 +1,106 @@
-.ui-modal {
-  background-color: #fff;
-  border-radius: 4px;
-  max-width: 800px;
-  margin: 80px auto 0 auto;
-  padding: 15px;
-}
-
 .ui-modal__overlay {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 }
-
-.ui-modal__close-button {
-  float: right;
+.ui-modal__overlay .ui-modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 16px;
+  max-width: 400px;
+  padding: 80px 0;
+}
+.ui-modal__overlay .ui-modal .modal-group .modal-image {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.ui-modal__overlay .ui-modal .modal-group .modal-image svg {
+  font-size: 96px;
+  color: #000;
+}
+.ui-modal__overlay .ui-modal .modal-group form {
+  width: 90%;
+  margin: 0 auto;
+}
+.ui-modal__overlay .ui-modal .modal-group form select {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border: 1px solid #f5f5f5;
+  color: #000;
+  background-color: #fff;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: #e0e0e0 0px 3px 12px;
+  transition: filter 0.2s;
+}
+.ui-modal__overlay .ui-modal .modal-group form select:hover {
+  filter: brightness(0.9);
+}
+.ui-modal__overlay .ui-modal .modal-group form select:focus {
+  outline: none;
+  filter: brightness(0.9);
+}
+.ui-modal__overlay .ui-modal .modal-group form input[type=date] {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border: 1px solid #f5f5f5;
+  color: #000;
+  background-color: #fff;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: #e0e0e0 0px 3px 12px;
+}
+.ui-modal__overlay .ui-modal .modal-group form input[type=date]:hover {
+  filter: brightness(0.9);
+}
+.ui-modal__overlay .ui-modal .modal-group form input[type=date]:focus {
+  outline: none;
+  filter: brightness(0.9);
+}
+.ui-modal__overlay .ui-modal .modal-group form .button {
+  width: 200px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #35367d;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #35367d;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ui-modal__overlay .ui-modal .modal-group form .button:hover {
+  background-color: #fff;
+  color: #35367d;
+}
+.ui-modal__overlay .ui-modal .ui-modal__close-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 15px;
+  right: 15px;
   border: unset;
   cursor: pointer;
   width: 32px;
@@ -25,6 +108,11 @@
   background-color: #ff601c;
   border-radius: 50%;
   color: white;
+  font-size: 24px;
+  transition: filter 0.2s;
+}
+.ui-modal__overlay .ui-modal .ui-modal__close-button:hover {
+  filter: brightness(0.8);
 }
 
 /*# sourceMappingURL=modal.css.map */

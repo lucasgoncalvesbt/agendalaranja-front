@@ -10,6 +10,7 @@ import ErrorModal from '../components/ErrorModal';
 
 import { FiPlus } from 'react-icons/fi';
 import { MdLocationOn } from 'react-icons/md';
+import { ImCalendar } from 'react-icons/im'
 import { FaCalendarAlt } from 'react-icons/fa';
 import { GiTable } from 'react-icons/gi';
 
@@ -59,6 +60,7 @@ const Agendamento = () => {
       setEscritorios(escritoriosResponse.data);
     }
     onLoad();
+    handlerGetData();
   }, [isAuthenticated])
 
   const handlerSubmit = async (event: FormEvent) => {
@@ -125,12 +127,20 @@ const Agendamento = () => {
     )
   })
 
+  const handlerGetData = () => {
+    const data = new Date();
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    setDataAgendada(ano + '-' + mes + '-' + dia);
+  }
+
   return (
     <div className="page-agendamentos-overlay">
       <div className="container page-agendamentos">
         <div className="title-button">
           <h1>Meus Agendamentos</h1>
-          {isAuthenticated ? <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo Agendamento</button> : null}
+          {isAuthenticated ? <button className="button" onClick={() => setIsOpen(true)}><FiPlus /> Novo</button> : null}
         </div>
         {isAuthenticated ?
           (<div className="agendamentos-list">
@@ -140,27 +150,39 @@ const Agendamento = () => {
       </div>
 
       <UIModal isOpen={isOpen} onClickClose={() => setIsOpen(false)}>
-        <form onSubmit={handlerSubmit}>
-          <div>
-            <select onChange={event => handlerEstacoes(event.target.value)}>
-              <option value="">Todas</option>
-              {escritorios.map((escritorio => {
-                return <option key={escritorio.id} value={escritorio.id}>{escritorio.local}</option>
-              }))}
-            </select>
-          </div>
-          <div>
-            <select onChange={event => setEstacao(event.target.value)}>
-              {estacoes.map((estacao => {
-                return <option key={estacao.id} value={estacao.id}>{estacao.id}</option>
-              }))}
-            </select>
-          </div>
-          <div>
-            <input type="date" onChange={event => setDataAgendada(event.target.value)} />
-          </div>
-          <button className="button">Agendar</button>
-        </form>
+        <div className="modal-group">
+          <div className="modal-image"><ImCalendar /></div>
+          <form onSubmit={handlerSubmit}>
+            <div>
+              <select id="escritorio" placeholder="Chose a option" onChange={event => handlerEstacoes(event.target.value)} required>
+                <option value="" hidden>Selecione um escritório</option>
+                {escritorios.map((escritorio => {
+                  return <option key={escritorio.id} value={escritorio.id}>{escritorio.local}</option>
+                }))}
+              </select>
+            </div>
+            <div>
+              <select id="estacao" onChange={event => setEstacao(event.target.value)} required>
+                <option value="" hidden>Selecione uma estação</option>
+                {estacoes.map((estacao => {
+                  return <option key={estacao.id} value={estacao.id}>{estacao.id}</option>
+                }))}
+              </select>
+            </div>
+            <div>
+              <input
+                min={dataAgendada}
+                value={dataAgendada}
+                type="date"
+                onChange={event => setDataAgendada(event.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group-button">
+              <button className="button">Agendar</button>
+            </div>
+          </form>
+        </div>
       </UIModal>
 
       <SucessoModal sucessoIsOpen={sucessoIsOpen} onClickClose={() => {
@@ -170,7 +192,11 @@ const Agendamento = () => {
         <h1>Sucesso</h1>
       </SucessoModal>
 
-      <ErrorModal errorIsOpen={errorIsOpen} errorMessage={errorMessage} onClickClose={() => { setErrorIsOpen(false) }} />
+      <ErrorModal
+        errorIsOpen={errorIsOpen}
+        errorMessage={errorMessage}
+        onClickClose={() => { setErrorIsOpen(false) }}
+      />
 
     </div>
   );
