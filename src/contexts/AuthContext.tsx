@@ -2,20 +2,20 @@ import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import api from '../services/api';
 
-type User = {
+type UserType = {
   id: number;
   nome: string;
   email: string;
 }
 
-type Decoded = {
+type DecodedType = {
   sub: number;
   email: string;
   nome: string;
 }
 
 type AuthContextType = {
-  user: User | undefined;
+  user: UserType | undefined;
   isAuthenticated: boolean;
   isAuthenticating: boolean;
   login(email: string, senha: string, callback: Function): Promise<void>;
@@ -29,7 +29,7 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<UserType>();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true);
 
@@ -37,7 +37,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     function onLoad() {
       const token = localStorage.getItem('token');
       if (token) {
-        const decoded = jwt_decode(token) as Decoded;
+        const decoded = jwt_decode(token) as DecodedType;
         api.defaults.headers['Authorization'] = `Bearer ${token}`;
         setUser({
           id: decoded.sub,
@@ -58,7 +58,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       senha: senha
     })
     localStorage.setItem('token', token)
-    const decoded = jwt_decode(token) as Decoded;
+    const decoded = jwt_decode(token) as DecodedType;
     setUser({
       id: decoded.sub,
       email: decoded.email,
