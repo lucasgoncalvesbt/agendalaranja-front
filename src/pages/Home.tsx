@@ -4,6 +4,8 @@ import { useAuth } from '../hooks/useAuth';
 
 import '../styles/css/home.css';
 
+import imageHome from '../assets/images/imghome.jpg';
+
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
@@ -16,7 +18,7 @@ export default function Home() {
     <div className="page-home-overlay">
       <div className="container page-home">
         <div className={"home-intro-tittle"}>
-          <h1>Agenda Laranja: você no escritório, quando quiser!</h1>
+          <h1>Agenda Laranja:<br /> você no escritório, quando quiser!</h1>
           <p>
             O mundo mudou e o seu escritório tabém. <br />
             Você pode decidir <strong>quando</strong> ir até la!
@@ -24,7 +26,9 @@ export default function Home() {
           <Link to="/agendamentos" className="button"> Agendar </Link>
         </div>
         <div className={"home-intro-image"}>
-          a
+          <div>
+            <img src={imageHome}></img>
+          </div>
         </div>
       </div>
     </div>

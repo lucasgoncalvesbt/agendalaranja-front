@@ -4,7 +4,7 @@
   background: #fff;
 }
 .page-home-overlay .page-home {
-  width: 100%;
+  width: 90%;
   padding: 250px 0 100px;
   display: flex;
   align-items: center;
@@ -16,7 +16,6 @@
   flex-grow: 1;
   align-items: flex-start;
   gap: 2rem;
-  padding: 0 20px;
 }
 .page-home-overlay .page-home .home-intro-tittle h1 {
   color: #0b132a;
@@ -48,7 +47,9 @@
 }
 .page-home-overlay .page-home .home-intro-image {
   width: 50%;
-  padding: 20px;
+}
+.page-home-overlay .page-home .home-intro-image div img {
+  width: 100%;
 }
 
 /* Extra small devices (phones, 600px and down) */
