@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+<img width="100%" src="src/assets/images/bg.jpg" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br><br>
 
-## Available Scripts
+<p align="center" >
+  <a href="#-sobre-o-projeto" >Sobre</a> •
+  <a href="#-funcionalidades">Funcionalidades</a> •
+  <a href="#-tecnologias-utilizadas">Tecnologias</a> •
+  <a href="#-como-executar-o-projeto">Como executar o projeto</a>
+</p>
 
-In the project directory, you can run:
+<br>
+<br>
 
-### `yarn start`
+# 🖥️ Sobre o projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p>📅 Agenda Laranja - é um meio prático e eficiente para programar o dia do trabalho presencial, respeitando as normas de segurança.</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Esse é o Front-end do projeto, para poder utilizar a API/Back-end [acesse aqui!](https://github.com/lucasgoncalvesbt/agendalaranja-api)
 
-### `yarn test`
+<p>Projeto desenvolvido durante o Hackaton do Programa de Formação do Grupo FCamara 2021 Season 2.</p>
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 📸 Screenshots
+<img src="src/assets/images/screenshot1.png">
+<br>
+<img src="src/assets/images/screenshot2.png">
 
-### `yarn build`
+<br>
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# ⚙ Funcionalidades
+- Usuarios se cadastram na aplicação e podem:
+  - Realizar um agendamento.
+  - Cancelar um agendamento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 💡 Tecnologias Utilizadas
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+- [ReactJs](https://pt-br.reactjs.org/)
+- [Sass](https://sass-lang.com/)
 
-### `yarn eject`
+<br>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 🚀 Como executar o projeto
+## Pré-requisitos
+  - [Git](https://git-scm.com/downloads) ( Para clonar o repositório )
+  - [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/getting-started/install) ( Para rodar os scripts de execução do projeto e instalação dos pacotes)
+  - [VSCode](https://code.visualstudio.com/) ( Opcional - editor de código para você trabalhar com o código )
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Agora execute os seguintes comandos:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+#Clone este repositorio
+$ git clone https://github.com/lucasgoncalvesbt/agendalaranja-api.git
 
-## Learn More
+#Deixe o comando anterior rodando, abra outra janela no terminal depois vá para a pasta web e execute o comando:
+$ npm install
+ou
+$ yarn install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#Execute a aplicação
+$ npm start
+ou
+$ yarn start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
+
+### O front-end espera um servidor na porta 8080, caso o servidor java, não inicie na porta 8080, basta alterar a porta no arquivo src/services/api.ts
