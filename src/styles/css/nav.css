@@ -13,6 +13,9 @@ header .navbar {
 header .navbar img {
   width: 132px;
 }
+header .navbar nav {
+  display: none;
+}
 header .navbar nav ul {
   display: flex;
   list-style: none;
@@ -43,9 +46,22 @@ header .navbar .button:hover {
 header .navbar .login {
   display: flex;
   align-items: center;
+  gap: 16px;
+}
+header .navbar .login span {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
 }
 header .navbar .login .button {
   font-size: 32px;
 }
+header .navbar .login .padding-0 {
+  padding: 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
 
 /*# sourceMappingURL=nav.css.map */

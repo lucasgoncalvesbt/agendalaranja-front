@@ -17,6 +17,8 @@ header {
     }
 
     nav {
+      display: none;
+
       ul {
         display: flex;
         list-style: none;
@@ -56,10 +58,33 @@ header {
     .login {
       display: flex;
       align-items: center;
+      gap: 16px;
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
 
       .button {
         font-size: 32px;
       }
+
+      .padding-0 {
+        padding: 0;
+      }
     }
   }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
 }

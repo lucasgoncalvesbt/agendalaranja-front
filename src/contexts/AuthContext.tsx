@@ -5,6 +5,7 @@ import api from '../services/api';
 type UserType = {
   id: number;
   nome: string;
+  sobrenome: string;
   email: string;
 }
 
@@ -12,6 +13,7 @@ type DecodedType = {
   sub: number;
   email: string;
   nome: string;
+  sobrenome: string;
 }
 
 type AuthContextType = {
@@ -42,7 +44,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         setUser({
           id: decoded.sub,
           email: decoded.email,
-          nome: decoded.nome
+          nome: decoded.nome,
+          sobrenome: decoded.sobrenome
         });
         setIsAuthenticated(true);
       }
@@ -62,7 +65,8 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     setUser({
       id: decoded.sub,
       email: decoded.email,
-      nome: decoded.nome
+      nome: decoded.nome,
+      sobrenome: decoded.sobrenome
     })
     setIsAuthenticated(true);
     setIsAuthenticating(false);

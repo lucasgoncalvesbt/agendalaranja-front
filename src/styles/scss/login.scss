@@ -1,7 +1,7 @@
 .page-login-overlay {
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(254, 68, 0);
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,6 @@
     width: 90%;
     max-width: 600px;
     background-color: rgb(255, 255, 255);
-    border-radius: 15px;
 
     display: flex;
     flex-direction: column;
@@ -42,17 +41,34 @@
 
         label {
           color: rgb(254, 68, 0);
+          font-weight: bold;
         }
 
-        input {
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
           width: 100%;
+          height: 40px;
+          border: none;
+          border: 1px solid #f5f5f5;
+          color: rgb(254, 68, 0);
+          background-color: #fff;
+          padding-left: 20px;
+          margin-bottom: 20px;
+          font-family: "Montserrat", sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          box-shadow: #e0e0e0 0px 3px 12px;
 
-          border: 1px solid rgb(254, 68, 0);
-          padding: 10px 15px;
-          border-radius: 5px;
+          transition: filter 0.2s;
+
+          &:hover {
+            filter: brightness(0.9);
+          }
 
           &:focus {
-            border: 1px solid rgb(254, 68, 0);
+            outline: none;
+            filter: brightness(0.9);
           }
         }
 
@@ -60,17 +76,18 @@
           display: flex;
 
           input {
-            border: 1px solid rgb(254, 68, 0);
             border-radius: 5px 0px 0px 5px;
           }
 
           span {
+            height: 40px;
             display: flex;
             align-items: center;
             width: fit-content;
             border: 1px solid rgb(254, 68, 0);
             background-color: rgb(254, 68, 0);
             color: white;
+            font-weight: 600;
             padding: 5px 10px;
             border-radius: 0px 5px 5px 0px;
 
@@ -104,6 +121,15 @@
       width: 90%;
       margin: 0 auto;
       text-align: center;
+
+      a {
+        color: rgb(54, 53, 126);
+        font-weight: bold;
+
+        &:hover {
+          border-bottom: 1px solid rgb(54, 53, 126);
+        }
+      }
     }
 
     .button-voltar {

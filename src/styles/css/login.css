@@ -1,7 +1,7 @@
 .page-login-overlay {
   width: 100%;
   min-height: 100vh;
-  background-color: #fe4400;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,6 @@
   width: 90%;
   max-width: 600px;
   background-color: white;
-  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,30 +38,51 @@
 }
 .page-login-overlay .page-login form .input-group label {
   color: #fe4400;
+  font-weight: bold;
 }
-.page-login-overlay .page-login form .input-group input {
+.page-login-overlay .page-login form .input-group input[type=text],
+.page-login-overlay .page-login form .input-group input[type=password],
+.page-login-overlay .page-login form .input-group input[type=email] {
   width: 100%;
-  border: 1px solid #fe4400;
-  padding: 10px 15px;
-  border-radius: 5px;
+  height: 40px;
+  border: none;
+  border: 1px solid #f5f5f5;
+  color: #fe4400;
+  background-color: #fff;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: #e0e0e0 0px 3px 12px;
+  transition: filter 0.2s;
 }
-.page-login-overlay .page-login form .input-group input:focus {
-  border: 1px solid #fe4400;
+.page-login-overlay .page-login form .input-group input[type=text]:hover,
+.page-login-overlay .page-login form .input-group input[type=password]:hover,
+.page-login-overlay .page-login form .input-group input[type=email]:hover {
+  filter: brightness(0.9);
+}
+.page-login-overlay .page-login form .input-group input[type=text]:focus,
+.page-login-overlay .page-login form .input-group input[type=password]:focus,
+.page-login-overlay .page-login form .input-group input[type=email]:focus {
+  outline: none;
+  filter: brightness(0.9);
 }
 .page-login-overlay .page-login form .input-group .input-group-email {
   display: flex;
 }
 .page-login-overlay .page-login form .input-group .input-group-email input {
-  border: 1px solid #fe4400;
   border-radius: 5px 0px 0px 5px;
 }
 .page-login-overlay .page-login form .input-group .input-group-email span {
+  height: 40px;
   display: flex;
   align-items: center;
   width: fit-content;
   border: 1px solid #fe4400;
   background-color: #fe4400;
   color: white;
+  font-weight: 600;
   padding: 5px 10px;
   border-radius: 0px 5px 5px 0px;
   font-size: 1rem;
@@ -86,6 +106,13 @@
   width: 90%;
   margin: 0 auto;
   text-align: center;
+}
+.page-login-overlay .page-login p a {
+  color: #36357e;
+  font-weight: bold;
+}
+.page-login-overlay .page-login p a:hover {
+  border-bottom: 1px solid #36357e;
 }
 .page-login-overlay .page-login .button-voltar {
   align-self: flex-start;

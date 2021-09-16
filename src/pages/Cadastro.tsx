@@ -9,17 +9,17 @@ const Cadastro = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [nome, setNome] = useState("");
+  const [sobrenome, setSobrenome] = useState("");
   const emailFinal = "@fcamara.com"
 
   const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-    const payload = { nome: nome, email: email + emailFinal, senha: senha };
+    const payload = { nome: nome, sobrenome: sobrenome, email: email + emailFinal, senha: senha };
     console.log(payload);
 
     try {
-      const response = await api.post('/auth/signout', payload)
-      console.log(response.data)
+      await api.post('/auth/signout', payload)
       history.push("/login");
     } catch (error: any) {
       console.log(error.response.data)
@@ -32,12 +32,23 @@ const Cadastro = () => {
         <h1>Sign Up</h1>
         <form onSubmit={handlerSubmit}>
           <div className="input-group">
-            <label>Nome</label>
+            <label htmlFor="nome">Nome</label>
             <input
+              id="nome"
               type="text"
               placeholder="Digite seu nome"
               onChange={event => setNome(event.target.value)}
               value={nome}
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="sobrenome">Sobrenome</label>
+            <input
+              id="email"
+              type="text"
+              placeholder="Digite seu sobrenome"
+              onChange={event => setSobrenome(event.target.value)}
+              value={sobrenome}
             />
           </div>
           <div className="input-group">
