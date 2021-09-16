@@ -115,4 +115,24 @@
   filter: brightness(0.8);
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .ui-modal__overlay .ui-modal {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
+    max-width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+  }
+  .ui-modal__overlay .ui-modal .modal-group {
+    width: 100%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+
 /*# sourceMappingURL=modal.css.map */

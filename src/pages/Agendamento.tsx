@@ -154,7 +154,7 @@ const Agendamento = () => {
           <div className="modal-image"><ImCalendar /></div>
           <form onSubmit={handlerSubmit}>
             <div>
-              <select id="escritorio" placeholder="Chose a option" onChange={event => handlerEstacoes(event.target.value)} required>
+              <select title="Selecione um escritório" id="escritorio" placeholder="Chose a option" onChange={event => handlerEstacoes(event.target.value)} required>
                 <option value="" hidden>Selecione um escritório</option>
                 {escritorios.map((escritorio => {
                   return <option key={escritorio.id} value={escritorio.id}>{escritorio.local}</option>
@@ -162,7 +162,7 @@ const Agendamento = () => {
               </select>
             </div>
             <div>
-              <select id="estacao" onChange={event => setEstacao(event.target.value)} required>
+              <select title="Selecione uma estação" id="estacao" onChange={event => setEstacao(event.target.value)} required>
                 <option value="" hidden>Selecione uma estação</option>
                 {estacoes.map((estacao => {
                   return <option key={estacao.id} value={estacao.id}>{estacao.id}</option>
@@ -171,6 +171,7 @@ const Agendamento = () => {
             </div>
             <div>
               <input
+                title="Selecione uma data"
                 min={dataAgendada}
                 value={dataAgendada}
                 type="date"
@@ -179,7 +180,7 @@ const Agendamento = () => {
               />
             </div>
             <div className="form-group-button">
-              <button className="button">Agendar</button>
+              <button className="button" title="Agendar">Agendar</button>
             </div>
           </form>
         </div>
