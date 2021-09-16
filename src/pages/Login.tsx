@@ -13,7 +13,7 @@ export default function Login() {
 
   const handlerSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await login(email + emailFinal, senha, () => history.push('/agendamentos'))
+    await login(email + emailFinal, senha, () => history.push('/'))
   }
 
   return (

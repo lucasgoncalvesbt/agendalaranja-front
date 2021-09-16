@@ -50,7 +50,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
       setIsAuthenticating(false);
     };
     onLoad();
-  }, [])
+  }, [isAuthenticated])
 
   const login = async (email: string, senha: string, callback: Function) => {
     const { data: { token } } = await api.post('/auth/sign', {
@@ -67,11 +67,13 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     setIsAuthenticated(true);
     setIsAuthenticating(false);
     callback();
+    //window.location.reload();
   }
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(undefined);
+    setIsAuthenticated(false);
     window.location.reload();
   }
 
