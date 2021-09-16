@@ -81,6 +81,7 @@ const Agendamento = () => {
       setIsOpen(false);
       setSucessoIsOpen(true);
     } catch (error: any) {
+      setIsOpen(false);
       console.log(error.response.data)
       setErrorMessage(error.response.data.message);
       setErrorIsOpen(true);
@@ -203,7 +204,7 @@ const Agendamento = () => {
       <ErrorModal
         errorIsOpen={errorIsOpen}
         errorMessage={errorMessage}
-        onClickClose={() => { setErrorIsOpen(false) }}
+        onClickClose={() => { setErrorIsOpen(false); setIsOpen(true); }}
       />
 
     </div>
