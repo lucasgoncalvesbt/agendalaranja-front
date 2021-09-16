@@ -43,16 +43,16 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           id: decoded.sub,
           email: decoded.email,
           nome: decoded.nome
-        })
+        });
         setIsAuthenticated(true);
       }
-
       setIsAuthenticating(false);
     };
     onLoad();
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
 
   const login = async (email: string, senha: string, callback: Function) => {
+    setIsAuthenticating(true);
     const { data: { token } } = await api.post('/auth/sign', {
       email: email,
       senha: senha
@@ -67,12 +67,10 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     setIsAuthenticated(true);
     setIsAuthenticating(false);
     callback();
-    //window.location.reload();
   }
 
   const logout = () => {
     localStorage.removeItem('token');
-    setUser(undefined);
     setIsAuthenticated(false);
     window.location.reload();
   }

@@ -14,13 +14,9 @@ function App() {
     <BrowserRouter>
       {!isAuthenticating && (
         <AuthContextProvider>
-
-          <>
-            <Nav />
-            <Routes />
-            <Footer />
-          </>
-
+          <Nav />
+          <Routes />
+          <Footer />
         </AuthContextProvider>
       )}
     </BrowserRouter>

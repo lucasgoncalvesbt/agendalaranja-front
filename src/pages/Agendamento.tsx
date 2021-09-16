@@ -25,6 +25,7 @@ type EscritorioType = {
 type EstacaoType = {
   id: number;
   qtdLugares: number;
+  nomeEstacao: string;
   escritorioId: number;
 }
 
@@ -33,6 +34,7 @@ type AgendamentoType = {
   nomeConsultor: string,
   emailConsultor: string,
   estacaoId: number,
+  nomeEstacao: string;
   dataAgendada: string;
   escritorioName: string
 }
@@ -54,6 +56,9 @@ const Agendamento = () => {
 
   useEffect(() => {
     const onLoad = async () => {
+
+      console.log(user)
+
       const agendamentosResponse = await api.get('/agendamento?emailConsultor=' + user?.email);
       setAgendamentos(agendamentosResponse.data);
       const escritoriosResponse = await api.get('/escritorio');
@@ -118,7 +123,7 @@ const Agendamento = () => {
           <ul className="card-list">
             <li><MdLocationOn /> {agendamento.escritorioName}</li>
             <li><FaCalendarAlt /> {agendamento.dataAgendada.split('-').join('/')}</li>
-            <li><GiTable /> Estação {agendamento.estacaoId}</li>
+            <li><GiTable /> Estação {agendamento.nomeEstacao}</li>
           </ul>
           <button className="button" onClick={() => handlerCancel(agendamento.id)}>Cancelar</button>
         </div>
@@ -164,7 +169,7 @@ const Agendamento = () => {
               <select title="Selecione uma estação" id="estacao" onChange={event => setEstacao(event.target.value)} required>
                 <option value="" hidden>Selecione uma estação</option>
                 {estacoes.map((estacao => {
-                  return <option key={estacao.id} value={estacao.id}>{estacao.id}</option>
+                  return <option key={estacao.id} value={estacao.id}>{estacao.nomeEstacao}</option>
                 }))}
               </select>
             </div>
