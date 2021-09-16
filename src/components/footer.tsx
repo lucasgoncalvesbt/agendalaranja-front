@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import fclogo from '../assets/images/logobranca.svg';
-import agendaLaranjaLogo from '../assets/images/logoagendalaranja.svg';
+import agendaLaranjaLogo from '../assets/images/logoagendalaranjapwb.svg';
 
 import '../styles/css/footer.css';
 

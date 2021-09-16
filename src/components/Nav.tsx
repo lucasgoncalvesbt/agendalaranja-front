@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 import { IoExitOutline } from "react-icons/io5"
-import agendaLaranjaFC from '../assets/images/logoagendalaranjapwb.svg';
+import agendaLaranjaFC from '../assets/images/logoagendalaranja.svg';
 
 import '../styles/css/nav.css';
 
