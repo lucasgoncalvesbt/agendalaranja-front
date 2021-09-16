@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import api from '../services/api';
 
-import UIModal from '../components/Modal';
+import FormModal from '../components/FormModal';
 import SucessoModal from '../components/SucessoModal';
 import ErrorModal from '../components/ErrorModal';
 
@@ -46,6 +46,7 @@ const Agendamento = () => {
   const [agendamentos, setAgendamentos] = useState<AgendamentoType[]>([]);
   const [estacao, setEstacao] = useState('');
   const [dataAgendada, setDataAgendada] = useState('');
+  const [dataMinima, setDataMinima] = useState('');
 
   const [isOpen, setIsOpen] = useState(false);
   const [sucessoIsOpen, setSucessoIsOpen] = useState(false);
@@ -137,6 +138,7 @@ const Agendamento = () => {
     const mes = String(data.getMonth() + 1).padStart(2, '0');
     const ano = data.getFullYear();
     setDataAgendada(ano + '-' + mes + '-' + dia);
+    setDataMinima(ano + '-' + mes + '-' + dia);
   }
 
   return (
@@ -153,7 +155,7 @@ const Agendamento = () => {
         }
       </div>
 
-      <UIModal isOpen={isOpen} onClickClose={() => setIsOpen(false)}>
+      <FormModal isOpen={isOpen} onClickClose={() => setIsOpen(false)}>
         <div className="modal-group">
           <div className="modal-image"><ImCalendar /></div>
           <form onSubmit={handlerSubmit}>
@@ -176,7 +178,7 @@ const Agendamento = () => {
             <div>
               <input
                 title="Selecione uma data"
-                min={dataAgendada}
+                min={dataMinima}
                 value={dataAgendada}
                 type="date"
                 onChange={event => setDataAgendada(event.target.value)}
@@ -188,14 +190,15 @@ const Agendamento = () => {
             </div>
           </form>
         </div>
-      </UIModal>
+      </FormModal>
 
-      <SucessoModal sucessoIsOpen={sucessoIsOpen} onClickClose={() => {
-        setSucessoIsOpen(false);
-        window.location.reload();
-      }} >
-        <h1>Sucesso</h1>
-      </SucessoModal>
+      <SucessoModal
+        sucessoIsOpen={sucessoIsOpen}
+        onClickClose={() => {
+          setSucessoIsOpen(false);
+          window.location.reload();
+        }}
+      />
 
       <ErrorModal
         errorIsOpen={errorIsOpen}

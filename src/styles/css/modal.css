@@ -25,6 +25,27 @@
   font-size: 96px;
   color: #000;
 }
+.ui-modal__overlay .ui-modal .modal-group .icon-green svg {
+  color: #2ecc71 !important;
+}
+.ui-modal__overlay .ui-modal .modal-group .icon-red svg {
+  color: #c0392b !important;
+}
+.ui-modal__overlay .ui-modal .modal-group .modal-text {
+  width: 90%;
+  margin: 0 auto;
+}
+.ui-modal__overlay .ui-modal .modal-group .modal-text h4 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.ui-modal__overlay .ui-modal .modal-group .modal-text p {
+  font-size: 16px;
+  font-weight: medium;
+  text-align: center;
+}
 .ui-modal__overlay .ui-modal .modal-group form {
   width: 90%;
   margin: 0 auto;

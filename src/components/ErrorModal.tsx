@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 
+import { MdError } from 'react-icons/md'
+
 import '../styles/css/modal.css';
 
 const portalRoot = document.getElementById('portal-root') as HTMLElement;
@@ -15,8 +17,12 @@ const ErrorModal = (props: { errorIsOpen: boolean, errorMessage: string, onClick
     <div className="ui-modal__overlay">
       <div className="ui-modal">
         <button type="button" className="ui-modal__close-button" onClick={onClickClose}>X</button>
-        <div>
-          <h1>{errorMessage}</h1>
+        <div className="modal-group">
+          <div className="modal-image icon-red"><MdError /></div>
+          <div className="modal-text">
+            <h4>Algo deu errado!</h4>
+            <p>{errorMessage}</p>
+          </div>
         </div>
       </div>
     </div>,

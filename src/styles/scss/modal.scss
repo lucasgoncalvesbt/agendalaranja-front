@@ -28,6 +28,36 @@
         }
       }
 
+      .icon-green {
+        svg {
+          color: #2ecc71 !important;
+        }
+      }
+
+      .icon-red {
+        svg {
+          color: #c0392b !important;
+        }
+      }
+
+      .modal-text {
+        width: 90%;
+        margin: 0 auto;
+
+        h4 {
+          font-size: 24px;
+          text-align: center;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: medium;
+          text-align: center;
+        }
+      }
+
       form {
         width: 90%;
         margin: 0 auto;
