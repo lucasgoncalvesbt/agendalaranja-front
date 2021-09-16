@@ -15,7 +15,7 @@
     background-color: #fff;
     border-radius: 16px;
     max-width: 400px;
-    padding: 80px 0;
+    padding: 120px 0 80px;
 
     .modal-group {
       .modal-image {
@@ -121,17 +121,19 @@
       right: 15px;
       border: unset;
       cursor: pointer;
-      width: 32px;
-      height: 32px;
-      background-color: #ff601c;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #35367d;
+      background-color: #35367d;
       border-radius: 50%;
       color: white;
       font-size: 24px;
 
-      transition: filter 0.2s;
+      transition: all 0.2s;
 
       &:hover {
-        filter: brightness(0.8);
+        background-color: #fff;
+        color: #35367d;
       }
     }
   }

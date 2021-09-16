@@ -69,16 +69,15 @@ const Agendamento = () => {
     const data = dataAgendada.split('-').reverse().join('-');
     const payload = { estacaoId: estacao, dataAgendada: data, nomeConsultor: user?.nome, emailConsultor: user?.email };
 
-    //setIsOpen(false);
-    //setSucessoIsOpen(true);
     try {
       const response = await api.post('/agendamento', payload);
-      console.log(response.data)
-      //setSucessoIsOpen(true);
+      console.log(response.data);
+      setIsOpen(false);
+      setSucessoIsOpen(true);
     } catch (error: any) {
       console.log(error.response.data)
-      //setErrorMessage(error.message)
-      //setErrorIsOpen(true);
+      setErrorMessage(error.response.data.message);
+      setErrorIsOpen(true);
     }
   }
 
