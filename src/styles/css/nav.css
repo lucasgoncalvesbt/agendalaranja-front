@@ -1,0 +1,67 @@
+header {
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  padding: 1.5rem 0 1.5rem;
+}
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header .navbar img {
+  width: 132px;
+}
+header .navbar nav {
+  display: none;
+}
+header .navbar nav ul {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+header .navbar nav ul a {
+  color: #0b132a;
+  font-weight: bold;
+}
+header .navbar nav ul a:hover {
+  border-bottom: 1px solid;
+}
+header .navbar .button {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #fe4400;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+header .navbar .button:hover {
+  filter: brightness(0.8);
+}
+header .navbar .login {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+header .navbar .login span {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+header .navbar .login .button {
+  font-size: 32px;
+}
+header .navbar .login .padding-0 {
+  padding: 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+
+/*# sourceMappingURL=nav.css.map */

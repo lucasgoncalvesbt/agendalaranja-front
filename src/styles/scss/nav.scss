@@ -1,0 +1,90 @@
+header {
+  width: 100%;
+  position: fixed;
+
+  background-color: #fff;
+
+  padding: 1.5rem 0 1.5rem;
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    img {
+      width: 132px;
+    }
+
+    nav {
+      display: none;
+
+      ul {
+        display: flex;
+        list-style: none;
+        gap: 3rem;
+
+        a {
+          color: rgb(11, 19, 42);
+          font-weight: bold;
+
+          &:hover {
+            border-bottom: 1px solid;
+          }
+        }
+      }
+    }
+
+    .button {
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+
+      font-size: 16px;
+      color: rgb(254, 68, 0);
+      font-weight: 600;
+      border: none;
+
+      cursor: pointer;
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+
+    .login {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .button {
+        font-size: 32px;
+      }
+
+      .padding-0 {
+        padding: 0;
+      }
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
+}

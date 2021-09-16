@@ -1,0 +1,163 @@
+.page-agendamentos-overlay {
+  width: 100%;
+  min-height: 100vh;
+  .page-agendamentos {
+    padding: 200px 0 100px;
+
+    .title-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h1 {
+        color: rgb(11, 19, 42);
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+
+        padding: 0.5rem 1rem;
+        background-color: rgb(254, 68, 0);
+        border-radius: 0.3rem;
+
+        font-size: 1rem;
+        color: #fff;
+        border: none;
+
+        cursor: pointer;
+
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+
+        svg {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .agendamentos-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+
+      margin-top: 100px;
+
+      h3 {
+        color: rgb(11, 19, 42);
+
+        a {
+          color: #ff601c;
+
+          &:hover {
+            border-bottom: 1px solid #ff601c;
+          }
+        }
+      }
+
+      .agendamento-card {
+        width: 256px;
+        padding: 20px 5px;
+
+        display: flex;
+        justify-content: center;
+
+        box-shadow: #e0e0e0 0px 3px 12px;
+
+        .card-body {
+          width: fit-content;
+
+          h5 {
+            margin: 20px 0 20px;
+          }
+
+          .card-list {
+            list-style: none;
+
+            li {
+              display: flex;
+              align-items: center;
+              margin-bottom: 15px;
+              gap: 10px;
+
+              svg {
+                width: 24px;
+                height: 24px;
+                padding: 6px;
+                background-color: #ffd0a4;
+                color: #ff601c;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          .button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0 20px;
+            gap: 3px;
+
+            padding: 0.5rem 1rem;
+            background-color: rgb(254, 68, 0);
+            border-radius: 0.3rem;
+
+            font-size: 1rem;
+            color: #fff;
+            border: none;
+
+            cursor: pointer;
+
+            transition: filter 0.2s;
+
+            &:hover {
+              filter: brightness(0.8);
+            }
+          }
+
+          .plus-icon {
+            width: 100%;
+            font-size: 64px;
+            color: #e6e6e6;
+            align-items: center;
+          }
+        }
+
+        .card-body-plus {
+          height: 100%;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .page-agendamentos-overlay {
+    .page-agendamentos {
+      .title-button {
+        flex-direction: column;
+        gap: 100px;
+      }
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
+}

@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
+import Footer from './components/Footer';
 import Nav from './components/Nav';
-import Agendamento from './pages/Agendamento';
-import Estacao from './pages/Estacao';
-import Home from './pages/Home';
-
-import './styles/css/App.css';
+import { AuthContextProvider } from './contexts/AuthContext';
+import { useAuth } from './hooks/useAuth';
+import Routes from './Routes';
 
 function App() {
+  const { isAuthenticating } = useAuth();
+
   return (
     <BrowserRouter>
-      <Nav />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/estacao" exact component={Estacao} />
-        <Route path="/agendamento" exact component={Agendamento} />
-      </Switch>
+      {!isAuthenticating && (
+        <AuthContextProvider>
+          <Nav />
+          <Routes />
+          <Footer />
+        </AuthContextProvider>
+      )}
     </BrowserRouter>
   );
 }
